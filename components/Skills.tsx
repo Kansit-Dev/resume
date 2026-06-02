@@ -20,58 +20,48 @@ export default function Skills() {
     <section
       id="skills"
       style={{
-        padding: "56px 0",
+        padding: "var(--section-py) 0",
         borderBottom: "1px solid var(--border)",
       }}
     >
-      <div className="animate-fade-up delay-100">
-        <div style={{ marginBottom: "36px" }}>
-          <p className="section-label">{t.nav.skills}</p>
-          <h2 className="section-title" style={{ marginTop: "8px" }}>
-            {t.ui.technicalExpertise}
-          </h2>
-        </div>
+      <h2
+        className="section-title"
+        style={{ marginBottom: "32px" }}
+      >
+        {t.ui.technicalExpertise}
+      </h2>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-            gap: "20px",
-          }}
-        >
-          {categories.map((cat, idx) => (
-            <div
-              key={cat.key}
-              id={`skills-${cat.key}`}
-              className="card animate-fade-up"
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+          columnGap: "48px",
+          rowGap: "32px",
+        }}
+      >
+        {categories.map((cat) => (
+          <div key={cat.key} id={`skills-${cat.key}`}>
+            <p
               style={{
-                padding: "20px 22px",
-                animationDelay: `${0.1 * (idx + 1)}s`,
+                fontSize: "0.65rem",
+                fontWeight: 700,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "var(--accent)",
+                marginBottom: "10px",
               }}
             >
-              <p
-                style={{
-                  fontSize: "0.65rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  color: "var(--accent)",
-                  marginBottom: "14px",
-                }}
-              >
-                {cat.label}
-              </p>
-
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-                {skills[cat.key].map((skill) => (
-                  <span key={skill} className="badge">
-                    {skill}
-                  </span>
-                ))}
-              </div>
+              {cat.label}
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+              {skills[cat.key].map((skill) => (
+                <span key={skill} className="badge">
+                  {skill}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

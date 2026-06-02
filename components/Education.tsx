@@ -17,13 +17,16 @@ export default function Education() {
     <section
       id="education"
       style={{
-        padding: "56px 0",
+        padding: "var(--section-py) 0",
         borderBottom: "1px solid var(--border)",
       }}
     >
       <div className="animate-fade-up delay-100">
         <div style={{ marginBottom: "36px" }}>
-          <p className="section-label">{t.nav.education}</p>
+          <p className="section-label">
+            {educationList.length}{" "}
+            {educationList.length === 1 ? "DEGREE" : "DEGREES"}
+          </p>
           <h2 className="section-title" style={{ marginTop: "8px" }}>
             {t.ui.academicBackground}
           </h2>

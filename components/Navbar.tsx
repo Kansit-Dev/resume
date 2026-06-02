@@ -5,13 +5,44 @@ import { useTheme } from "next-themes";
 import { Moon, Sun, Languages } from "lucide-react";
 import { useEffect, useState } from "react";
 
+const NAV_ITEMS = [
+  { href: "#hero", key: "home" },
+  { href: "#about", key: "about" },
+  { href: "#experience", key: "experience" },
+  { href: "#skills", key: "skills" },
+  { href: "#projects", key: "projects" },
+  { href: "#education", key: "education" },
+  { href: "#contact", key: "contact" },
+] as const;
+
+type NavKey = (typeof NAV_ITEMS)[number]["key"];
+
 export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const [activeHref, setActiveHref] = useState<string>("#hero");
 
   useEffect(() => {
-    setMounted(true);
+    const sections = NAV_ITEMS
+      .map((item) => document.getElementById(item.href.slice(1)))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length > 0) {
+          setActiveHref(`#${visible[0].target.id}`);
+        }
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: 0 }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
   }, []);
 
   const toggleLanguage = () => {
@@ -54,32 +85,28 @@ export default function Navbar() {
             scrollbarWidth: "none",
           }}
         >
-          {[
-            { href: "#hero", label: t.nav.home },
-            { href: "#about", label: t.nav.about },
-            { href: "#experience", label: t.nav.experience },
-            { href: "#skills", label: t.nav.skills },
-            { href: "#projects", label: t.nav.projects },
-            { href: "#education", label: t.nav.education },
-            { href: "#contact", label: t.nav.contact },
-          ].map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="nav-link"
-              style={{
-                padding: "14px 12px",
-                fontSize: "0.78rem",
-                fontWeight: 500,
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-                whiteSpace: "nowrap",
-                textDecoration: "none",
-              }}
-            >
-              {item.label}
-            </a>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const isActive = activeHref === item.href;
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                className="nav-link"
+                aria-current={isActive ? "page" : undefined}
+                style={{
+                  padding: "14px 12px",
+                  fontSize: "0.78rem",
+                  fontWeight: isActive ? 600 : 500,
+                  letterSpacing: "0.02em",
+                  textTransform: "uppercase",
+                  whiteSpace: "nowrap",
+                  textDecoration: "none",
+                }}
+              >
+                {t.nav[item.key as NavKey]}
+              </a>
+            );
+          })}
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
@@ -97,27 +124,28 @@ export default function Navbar() {
               fontWeight: 600,
             }}
             title="Toggle Language"
+            aria-label="Toggle language"
           >
-            <Languages size={18} />
+            <Languages size={18} aria-hidden="true" />
             {language === "en" ? "TH" : "EN"}
           </button>
 
-          {mounted && (
-            <button
-              onClick={toggleTheme}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                color: "var(--text)",
-                display: "flex",
-                alignItems: "center",
-              }}
-              title="Toggle Theme"
-            >
-              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-          )}
+          <button
+            onClick={toggleTheme}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              color: "var(--text)",
+              display: "flex",
+              alignItems: "center",
+            }}
+            title="Toggle Theme"
+            aria-label="Toggle theme"
+          >
+            <Sun size={18} className="theme-icon theme-icon-light" aria-hidden="true" />
+            <Moon size={18} className="theme-icon theme-icon-dark" aria-hidden="true" />
+          </button>
         </div>
       </div>
     </nav>

@@ -56,3 +56,8 @@ GEMINI.md
 skills/
 .agents/
 .claude-plugin/
+
+# Generated and Design files
+.impeccable/
+DESIGN.md
+PRODUCT.md

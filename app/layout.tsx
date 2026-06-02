@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Kantasit Tipsapapkul — Full Stack Developer",
+    title: "Kantasit Tipsapapkul · Full Stack Developer",
     description:
       "Full Stack Developer specializing in Next.js, React, and FastAPI.",
     url: "https://kantasit.vercel.app",
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Kantasit Tipsapapkul — Full Stack Developer",
+        alt: "Kantasit Tipsapapkul · Full Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kantasit Tipsapapkul — Full Stack Developer",
+    title: "Kantasit Tipsapapkul · Full Stack Developer",
     description:
       "Full Stack Developer specializing in Next.js, React, and FastAPI.",
     images: ["/og-image.png"],

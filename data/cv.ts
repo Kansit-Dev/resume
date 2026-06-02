@@ -3,8 +3,6 @@
 const baseProfile = {
   email: "t.jet.kantasit@gmail.com",
   phone: "083-715-8541",
-  github: "https://github.com/kantasit",
-  linkedin: "https://linkedin.com/in/kantasit",
 };
 
 const baseSkills = {
@@ -73,7 +71,7 @@ export const cvData = {
         degree: "B.Sc. Mathematics with Computer Science",
         period: "2022 – 2026",
         details: [
-          "Capstone: Data to Data System — web migration of legacy lab data system (Next.js · FastAPI · MariaDB)",
+          "Capstone: Data to Data System, web migration of legacy lab data system (Next.js · FastAPI · MariaDB)",
           "Relevant coursework: Data Structures, Database Systems, Software Engineering, Web Application Development",
         ],
       },
@@ -92,26 +90,18 @@ export const cvData = {
       contact: "Contact",
     },
     ui: {
-      downloadPdf: "Download PDF",
       aboutMe: "About Me",
       professionalJourney: "Professional Journey",
-      workExperience: "Work Experience",
       technicalExpertise: "Technical Expertise",
       featuredProjects: "Featured Projects",
-      recentWork: "Recent Work",
       academicBackground: "Academic Background",
-      education: "Education",
       getInTouch: "Get In Touch",
-      contactInformation: "Contact Information",
-      sayHello: "I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.",
-      developedWith: "Designed and developed with",
-      by: "by",
     }
   },
   th: {
     profile: {
       ...baseProfile,
-      name: "กัณฑศิษฎ ทิพยสภาพกุล",
+      name: "กัณฑศิษฎ์ ทิพยสภาพกุล",
       title: "Full Stack Developer",
       location: "กรุงเทพมหานคร, ประเทศไทย 10230",
       summary: "บัณฑิตสาขาคณิตศาสตร์ประยุกต์และวิทยาการคอมพิวเตอร์ มีประสบการณ์ในการพัฒนาเว็บไซต์แบบ Full-stack โดยเฉพาะการพัฒนาระบบสำหรับใช้จริงในโรงพยาบาล สามารถออกแบบสถาปัตยกรรมระบบตั้งแต่ฐานข้อมูลจนถึง Frontend ได้อย่างครบวงจร มีทักษะในการแก้ปัญหาอย่างเป็นระบบ และสามารถแปลงความต้องการที่ซับซ้อนให้กลายเป็นโซลูชันที่ใช้งานได้จริง รวมถึงเป็นสื่อกลางระหว่างผู้ใช้งานและทีมพัฒนาได้เป็นอย่างดี",
@@ -164,7 +154,7 @@ export const cvData = {
         degree: "วิทยาศาสตรบัณฑิต สาขาคณิตศาสตร์ประยุกต์และวิทยาการคอมพิวเตอร์",
         period: "2022 – 2026",
         details: [
-          "ปริญญานิพนธ์: ระบบ Data to Data — การเปลี่ยนระบบข้อมูลห้องปฏิบัติการเดิมสู่เว็บไซต์ (Next.js · FastAPI · MariaDB)",
+          "ปริญญานิพนธ์: ระบบ Data to Data, การเปลี่ยนระบบข้อมูลห้องปฏิบัติการเดิมสู่เว็บไซต์ (Next.js · FastAPI · MariaDB)",
           "วิชาที่เกี่ยวข้อง: โครงสร้างข้อมูล, ระบบฐานข้อมูล, วิศวกรรมซอฟต์แวร์, การพัฒนาเว็บแอปพลิเคชัน",
         ],
       },
@@ -183,20 +173,12 @@ export const cvData = {
       contact: "ติดต่อ",
     },
     ui: {
-      downloadPdf: "ดาวน์โหลด PDF",
       aboutMe: "เกี่ยวกับฉัน",
       professionalJourney: "เส้นทางการทำงาน",
-      workExperience: "ประสบการณ์ทำงาน",
       technicalExpertise: "ความเชี่ยวชาญทางเทคนิค",
       featuredProjects: "ผลงานที่โดดเด่น",
-      recentWork: "ผลงานล่าสุด",
       academicBackground: "ประวัติการศึกษา",
-      education: "การศึกษา",
       getInTouch: "ช่องทางการติดต่อ",
-      contactInformation: "ข้อมูลติดต่อ",
-      sayHello: "ผมเปิดรับโอกาสใหม่ๆ โปรเจกต์ หรือการพูดคุยเพื่อร่วมเป็นส่วนหนึ่งในวิสัยทัศน์ของคุณเสมอ",
-      developedWith: "ออกแบบและพัฒนาด้วย",
-      by: "โดย",
     }
   }
 };

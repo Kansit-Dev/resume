@@ -14,7 +14,7 @@ export default function Home() {
 
       {/* Main content */}
       <main
-        id="main"
+        id="main-content"
         style={{
           maxWidth: "860px",
           margin: "0 auto",

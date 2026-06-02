@@ -24,13 +24,16 @@ export default function Projects() {
     <section
       id="projects"
       style={{
-        padding: "56px 0",
+        padding: "var(--section-py) 0",
         borderBottom: "1px solid var(--border)",
       }}
     >
       <div className="animate-fade-up delay-100">
         <div style={{ marginBottom: "36px" }}>
-          <p className="section-label">{t.nav.projects}</p>
+          <p className="section-label">
+            {projects.length}{" "}
+            {projects.length === 1 ? "PROJECT" : "PROJECTS"}
+          </p>
           <h2 className="section-title" style={{ marginTop: "8px" }}>
             {t.ui.featuredProjects}
           </h2>
@@ -174,44 +177,60 @@ export default function Projects() {
               </div>
 
               {/* Links */}
-              {(project.github || project.demo) && (
-                <div style={{ display: "flex", gap: "12px" }}>
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="link-hover"
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "6px",
-                        fontSize: "0.8rem",
-                      }}
-                    >
-                      <GithubIcon />
-                      Source
-                    </a>
-                  )}
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="link-hover"
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "6px",
-                        fontSize: "0.8rem",
-                      }}
-                    >
-                      <ExternalLinkIcon />
-                      Live Demo
-                    </a>
-                  )}
-                </div>
-              )}
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                {project.github ? (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-hover"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      fontSize: "0.8rem",
+                    }}
+                  >
+                    <GithubIcon />
+                    Source
+                  </a>
+                ) : (
+                  <span
+                    className="link-disabled"
+                    aria-label="Source code not available"
+                    title="Source code not available"
+                  >
+                    <GithubIcon />
+                    Source
+                  </span>
+                )}
+                {project.demo ? (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-hover"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      fontSize: "0.8rem",
+                    }}
+                  >
+                    <ExternalLinkIcon />
+                    Live Demo
+                  </a>
+                ) : (
+                  <span
+                    className="link-disabled"
+                    aria-label="Live demo not available"
+                    title="Live demo not available"
+                  >
+                    <ExternalLinkIcon />
+                    Live Demo
+                  </span>
+                )}
+              </div>
             </article>
           ))}
         </div>
